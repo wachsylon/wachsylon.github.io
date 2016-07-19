@@ -1,4 +1,4 @@
-<!-- This is a tool to calculate simple model solutions. It plots a time series and a phase space trajectory after pushing
+<!-- This is a tool to calculate simple individual dynamic model solutions. It plots a time series and a phase space trajectory after pushing
 the blue button. Next developments should contain: 
   - further examples for models of different problems and issues.
   - debugging of applicants.
@@ -451,8 +451,7 @@ $('#climate').on('click',function () {
     });
   $(":checkbox").each(function(){$(this).prop('checked', true)});
   $('.dropdown-menu').each(function () {$(this).find(".codep").eq(0).trigger("click");});
-  $('#codep-list23').find(".codep").eq(1).trigger("click");
-  $('#codep-list31').find(".codep").eq(1).trigger("click");
+  $('#codep-list32').find(".codep").eq(1).trigger("click");
   $('.dropdown-menu').each(function () {$(this).find(".funct").eq(0).trigger("click");});
   $("input[type=range]").eq(0).val(1000);
   updateText(1000,'outnst');
