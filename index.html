@@ -451,8 +451,8 @@ $('#climate').on('click',function () {
     });
   $(":checkbox").each(function(){$(this).prop('checked', true)});
   $('.dropdown-menu').each(function () {$(this).find(".codep").eq(0).trigger("click");});
-  $('#codep-list32').find(".codep").eq(1).trigger("click");
   $('.dropdown-menu').each(function () {$(this).find(".funct").eq(0).trigger("click");});
+  $('#funct-list32').find(".funct").eq(2).trigger("click");
   $("input[type=range]").eq(0).val(1000);
   updateText(1000,'outnst');
 });
