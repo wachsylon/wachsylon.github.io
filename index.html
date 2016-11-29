@@ -43,16 +43,18 @@ Built on Bootstrap, Jquery and Plotly packages-->
   </div>
 </script>
 
-<script id="day" type="text/x-jQuery-tmpl">
-  <div class="col-md-2"> <p> Test </p> </div>
+<script id="Tag_halter" type="text/x-jQuery-tmpl">
+  <div class="col-md-2"> <p> ${day} </p> </div>
 </script>
 
 <script type="text/javascript" >
 //Use Template
+var day=0;
 for (var i=0; i<4; i++) {
   $('#zeile_anfang').tmpl().appendTo(("#calendar"));	
   for (var j=0; j<7; j++) {
-    $('#day').tmpl().appendTo(("#calendar"));
+    day=i*7+j;
+    $('#Tag_halter').tmpl(day).appendTo(("#calendar"));
   };
   $('#ende').tmpl().appendTo(("#calendar"));		
 };
