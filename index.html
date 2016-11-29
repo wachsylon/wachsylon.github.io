@@ -39,6 +39,7 @@ Built on Bootstrap, Jquery and Plotly packages-->
 <script id="zeile_anfang" type="text/x-jQuery-tmpl">
   <div class="row">
 </script>
+
 <script id="zeile_ende" type="text/x-jQuery-tmpl">
   </div>
 </script>
@@ -53,10 +54,10 @@ var day=0;
 for (var i=0; i<4; i++) {
   $('#zeile_anfang').tmpl().appendTo(("#calendar"));	
   for (var j=0; j<7; j++) {
-    day=i*7+j;
+    day=i*7+j+1;
     $('#Tag_halter').tmpl(day).appendTo(("#calendar"));
   };
-  $('#ende').tmpl().appendTo(("#calendar"));		
+  $('#zeile_ende').tmpl().appendTo(("#calendar"));		
 };
 </script>
 </body>
