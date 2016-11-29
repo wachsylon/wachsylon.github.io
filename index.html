@@ -52,8 +52,8 @@ Built on Bootstrap, Jquery and Plotly packages-->
 //Use Template
 for (var i=0; i<4; i++) {
   $('#zanf').tmpl().appendTo(("#calendar"));	
-  for (var j=0; j<7; j++) {
-    var day=("" + (i*7) + (j+1));
+  for (var j=0; j<6; j++) {
+    var day=("" + (i*6 + j+1));
     $('#tagbox').tmpl(day).appendTo(("#calendar"));
   };
   $('#zend').tmpl().appendTo(("#calendar"));		
