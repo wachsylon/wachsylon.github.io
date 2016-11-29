@@ -26,14 +26,10 @@ Built on Bootstrap, Jquery and Plotly packages-->
 
 </style>
 </head>
-
 <body>
 
-
-
-<div class="container" id="calendar">
-</div>
-      
+<div class="container-fluid" id="calendar">
+  <div class="row"> <h2 class="text-center"> Cocos Adventskalender </h2> </div>    
 </div>
 
 <script id="zanf" type="text/x-jQuery-tmpl">
@@ -45,19 +41,54 @@ Built on Bootstrap, Jquery and Plotly packages-->
 </script>
 
 <script id="tagbox" type="text/x-jQuery-tmpl">
-  <div class="col-md-2"> <p> (${day}) </p> </div>
+  <div class="col-md-2">  
+    <div class="thumbnail"> 
+      <h3> ${day} </h3>
+      <img class="invisible" id="tuer${day}" src="DSC_0131.JPG" style="width:100%">
+   </div>
+ </div>
 </script>
 
 <script type="text/javascript" >
+var alldecdays = [];
+for (var i = 0; i<24; i++){
+  alldecdays.push(i);
+};
+alldecdays = randomize(alldecdays,24);
+
+function randomize(myArray,nb_picks)
+{
+    for (i = myArray.length-1; i > 1  ; i--)
+    {
+        var r = Math.floor(Math.random()*i);
+        var t = myArray[i];
+        myArray[i] = myArray[r];
+        myArray[r] = t;
+    }
+
+    return myArray.slice(0,nb_picks);
+}
+
 //Use Template
 for (var i=0; i<4; i++) {
   $('#zanf').tmpl().appendTo(("#calendar"));	
   for (var j=0; j<6; j++) {
-    var day=("" + (i*6 + j+1));
+    var day = "" + alldecdays[i*6 + j];
     $('#tagbox').tmpl(day).appendTo(("#calendar"));
   };
   $('#zend').tmpl().appendTo(("#calendar"));		
 };
+
+$(function(){
+  var date = new Date();
+  var decday = date.getDate();
+  decday = 7;
+//  if ( decday < 24 ) {
+    for ( var i = 0; i < decday; i++ ) {
+      $(("#tuer"+(i+1))).removeClass('invisible');
+    }
+//  }
+});
 </script>
 </body>
 </html>
