@@ -31,49 +31,31 @@ Built on Bootstrap, Jquery and Plotly packages-->
 
 
 
-<div class="container">
-  <div class="row">
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-  </div>
-  <div class="row">
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-  </div>
-  <div class="row">
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-  </div>
-  <div class="row">
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-     <div class="col-md-2"> <p> Test </p> </div>
-  </div>
+<div class="container" id="calendar">
 </div>
       
 </div>
 
-<script id="templ" type="text/x-jQuery-tmpl">
+<script id="zeile_anfang" type="text/x-jQuery-tmpl">
+  <div class="row">
+</script>
+<script id="zeile_ende" type="text/x-jQuery-tmpl">
+  </div>
+</script>
 
+<script id="day" type="text/x-jQuery-tmpl">
+  <div class="col-md-2"> <p> Test </p> </div>
 </script>
 
 <script type="text/javascript" >
-
+//Use Template
+for (var i=0; i<4; i++) {
+  $('#zeile_anfang').tmpl().appendTo(("#calendar"));	
+  for (var j=0; j<7; j++) {
+    $('#day').tmpl().appendTo(("#calendar"));
+  };
+  $('#ende').tmpl().appendTo(("#calendar"));		
+};
 </script>
 </body>
 </html>
