@@ -17,8 +17,6 @@ Built on Bootstrap, Jquery and Plotly packages-->
  <script src="./jquery-1.12.0.min.js"> </script>
  <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
  <script src="./bootstrap.min.js"></script>
- <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
- <script src="./plotly-latest.min.js"></script>
  <!-- <script type=”text/javascript” src=”http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js”></script> -->
  <script type="text/javascript" src="./jquery.tmpl.js">  </script>
 
@@ -44,7 +42,10 @@ Built on Bootstrap, Jquery and Plotly packages-->
   <div class="col-md-2">  
     <div class="thumbnail"> 
       <h3> ${day} </h3>
-      <img class="invisible" id="tuer${day}" src="DSC_0012.JPG" style="width:100%">
+      <img id="schlossTuer${dayind}" src="door-clipart-7865showing.png" style="width:60%">
+      <a class="hidden" id="offenTuer${dayind}" href="door-clipart-pull-open-door-clipart-2.jpg">
+        <img src="door-clipart-pull-open-door-clipart-2.jpg" style="width:100%">
+      </a>
    </div>
  </div>
 </script>
@@ -73,8 +74,9 @@ function randomize(myArray,nb_picks)
 for (var i=0; i<4; i++) {
   $('#zanf').tmpl().appendTo(("#calendar"));	
   for (var j=0; j<6; j++) {
-    var day = "" + alldecdays[i*6 + j];
-    $('#tagbox').tmpl(day).appendTo(("#calendar"));
+    var dayind = "" + alldecdays[i*6 + j];
+    var day = alldecdays[i*6 + j] + 1;
+    $('#tagbox').tmpl(dayind,day).appendTo(("#calendar"));
   };
   $('#zend').tmpl().appendTo(("#calendar"));		
 };
@@ -85,7 +87,8 @@ $(function(){
   decday = 7;
 //  if ( decday < 24 ) {
     for ( var i = 0; i < decday; i++ ) {
-      $(("#tuer"+(i+1))).removeClass('invisible');
+      $(("#schlossTuer"+i)).addClass('hidden');
+      $(("#offenTuer"+i)).removeClass('hidden');
     }
 //  }
 });
